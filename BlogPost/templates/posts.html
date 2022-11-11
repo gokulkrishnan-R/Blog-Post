@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block body %}
+<br>    
+    <h1 style="display: inline;">All Posts</h1>
+    <a class="btn btn-success float-end" href="/posts/new_post"> +New Post</a>
+<hr>
+<br>
+{% for i in all_datas %}
+
+{% if i.title %}
+    <div class="spacing">
+    <h4>{{ i.title }} </h4>
+    </div>
+    <br>
+{% else %}
+    <h4>No Title</h4>
+{% endif %}
+
+{% if i.content %}
+    <div class="container"><h5>Post: {{ i.content }}</h5></div> 
+{% else %}
+    <h3>No Content</h3>
+{% endif %}
+
+{% if i.author %}
+    <small>Posted by: {{ i.author }} on {{ i.date_posted }}</h3></small>
+{% else %}
+    <h3>No Author:(N/A)</h3>
+{% endif %}
+<br>
+<br>
+<a class="btn btn-primary" href="/posts/update/{{ i.id }}">Update</a>
+<a class="btn btn-danger"href="/posts/delete/{{ i.id }}">Delete</a>
+
+<hr>
+{% endfor %}
+
+<br>
+<br>
+<hr>
+
+<div style="margin: auto; width: 50%; padding: 10px;">
+    <form action="/mailnotifications">
+        <h1 style="margin: auto; width: 100%; padding: 10px;">Subscribe for more updates</h1>
+        <h1 style="margin: auto; width: 100%; padding: 10px;"></h1><label for="title">Name:</label>
+        <input name="title" id="title" size="25" placeholder="Enter name" aria-label="Search">
+        <br>
+        <h1 style="margin: auto; width: 100%; padding: 10px;"></h1><label for="author">Email-id:</label>
+        <input type="search" name="author" id="author" size="25" placeholder="Enter e-mail" aria-label="Search">
+        </div>
+        <br>
+        <div class="style2">
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;       
+            <input class="btn btn-secondary" type="submit" value="Getupdates">
+        </div>
+        <br>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Notifications Page</title>
+{% endblock %}
+
+{% block body %}
+
+{% for i in msg %}
+
+<h1>Thanks you will get notifications.</h1>
+
+<form action="/posts/mailnotifications/{{ i.recipients }}", method="POST">
+    <h1>{{ i.recipients }}</h1>
+</form>
+
+{% endblock %}
